@@ -1,0 +1,4 @@
+export Db_NAME="legalease"
+export Db_USER="postgres"
+export Db_PASS="serendipity"
+export Db_HOST="localhost"
