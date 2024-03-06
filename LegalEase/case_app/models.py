@@ -1,10 +1,20 @@
 from django.db import models
+from user_app.models import UserProfile
 
-# Create your models here.
+class CourtLevel(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Case(models.Model):
-    case_id = models.AutoField(primary_key=True)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
     description = models.TextField()
-    assigned_lawyer = models.ForeignKey('Lawyer', on_delete=models.SET_NULL, null=True)
-    status = models.CharField(max_length=50, choices=[('open', 'Open'), ('closed', 'Closed')])
+    court_level = models.ForeignKey(CourtLevel, on_delete=models.CASCADE)
+    judge_or_arbitrator = models.CharField(max_length=100)
+    scheduling_date = models.DateTimeField()
+    lawyer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    documents = models.ManyToManyField('document_app.Document')
+
+    def __str__(self):
+        return self.title
