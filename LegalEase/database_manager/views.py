@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db import connection
+from .models import DataModel
 
 def connect_to_database(request):
     """View function for connecting to the database."""
@@ -18,3 +19,12 @@ def query_database(request):
             results = cursor.fetchall()
         return render(request, 'database_manager/query_result.html', {'results': results, 'query': query})
     return render(request, 'database_manager/query_database.html')
+
+def database_insert(request):
+    """View function for inserting data into the database."""
+    if request.method == 'POST':
+        # Process form data to insert data into the database
+        # Example: data = DataModel.objects.create(field1=request.POST['field1'], field2=request.POST['field2'])
+        # Replace 'DataModel.objects.create' with your actual logic for inserting data
+        return render(request, 'database_manager/insert_success.html')
+    return render(request, 'database_manager/insert_form.html')
