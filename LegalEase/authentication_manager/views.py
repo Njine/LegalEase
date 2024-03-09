@@ -1,7 +1,24 @@
+from django import forms
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import UserLoginForm
+
+
+class UserLoginForm(AuthenticationForm):
+    # Additional fields or customizations
+    remember_me = forms.BooleanField(required=False, label='Remember Me')
+    # You can add more fields as needed
+    email = forms.EmailField(label='Email')
+    first_name = forms.CharField(max_length=100, label='First Name')
+    last_name = forms.CharField(max_length=100, label='Last Name')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # You can customize the form further, such as adding placeholders or CSS classes
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['username'].widget.attrs['placeholder'] = 'Enter your username'
+            self.fields['password'].widget.attrs['placeholder'] = 'Enter your password'
+            self.fields['remember_me'].widget.attrs['class'] = 'form-check-input'
 
 def user_login(request):
     if request.method == 'POST':
