@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Document
+from .models import Document  # Import the Document model
 
-admin.site.register(Document)
+# Register the Document model
+#admin.site.register(Document)
