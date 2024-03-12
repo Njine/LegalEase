@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "user_app",  # Add this line
+    "authentication_manager",  # Add this line
+    "case_app",  # Add this line
+    "document_app",  # Add this line
+    "client_app",  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -81,7 +86,6 @@ DATABASES = {
         "USER": os.environ.get('DB_USER'),
         "PASSWORD": os.environ.get('DB_PASSWORD'),
         "HOST": os.environ.get('DB_HOST'),
-
     }
 }
 
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Africa/Nairobi"
 
 USE_I18N = True
 
@@ -120,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "LegalEase/static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
@@ -128,3 +132,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Add authentication backend
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Specify the login URL
+LOGIN_URL = 'login'
+
+# Specify the URL to redirect to after log out
+LOGOUT_REDIRECT_URL = 'login'

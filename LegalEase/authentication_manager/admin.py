@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import AuthenticationManager
+from .models import User
 
-admin.site.register(AuthenticationManager)
+admin.site.register(User)

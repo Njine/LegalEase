@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Client</title>
+</head>
+<body>
+    <h1>Update Client</h1>
+    <form action="{% url 'update_client' client.id %}" method="post">
+        {% csrf_token %}
+        <!-- Add your form fields here with pre-filled values from the client object -->
+        <button type="submit">Update Client</button>
+    </form>
+</body>
+</html>
