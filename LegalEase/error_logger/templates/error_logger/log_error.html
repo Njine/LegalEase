@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Error</title>
+</head>
+<body>
+    <h1>Log Error</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="error_message">Error Message:</label><br>
+        <textarea id="error_message" name="error_message"></textarea><br>
+        <label for="error_code">Error Code:</label><br>
+        <input type="text" id="error_code" name="error_code"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
