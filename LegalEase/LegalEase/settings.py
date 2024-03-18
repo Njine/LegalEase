@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "case_app",  # Add this line
     "document_app",  # Add this line
     "client_app",  # Add this line
+    "error_logger",  # Add this line
+    "invoice_app",  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = "LegalEase.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "LegalEase", "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

@@ -1,12 +1,22 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, Group, Permission  
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=50, choices=[('partner', 'Partner'), ('associate', 'Associate'), ('clerk', 'Clerk'), ('secretary', 'Secretary'), ('admin', 'Admin')])
+class CustomUser(AbstractUser):
+    ROLES = (
+        ('partner', 'Partner'),
+        ('associate', 'Associate'),
+        ('clerk', 'Clerk'),
+        ('secretary', 'Secretary'),
+        ('admin', 'Admin'),
+    )
 
-    class Meta:
-        app_label = 'user_app'  # Add this line
+    is_admin = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.user.username} - {self.role}"
+    def create_user(self, username, password, role):
+        user = CustomUser.objects.create_user(username=username, password=password)
+        user.role = role
+        user.save()
+        return user
+    role = models.CharField(max_length=20, choices=ROLES)
+    groups = models.ManyToManyField(Group, verbose_name='groups', blank=True, related_name='custom_user_groups')
+    user_permissions = models.ManyToManyField(Permission, verbose_name='user permissions', blank=True, related_name='custom_user_permissions')

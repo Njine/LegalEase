@@ -22,4 +22,8 @@ urlpatterns = [
     path('', include('user_app.urls')),
     path('cases/', include('case_app.urls')),  # Add this line to include case_app URLs
     path('clients/', include('client_app.urls')),  # Include client_app URLs
+    path('error-logger/', include('error_logger.urls')),  # Add this line to include error_logger app URLs
+    path('documents/', include('document_app.urls')),  # Add this line to include document_app URLs
+    path('invoices/', include('invoice_app.urls')),  # Add this line to include invoice_app URLs
+    path('authentication/', include('authentication_manager.urls')),  # Add this line to include authentication_manager URLs
 ]

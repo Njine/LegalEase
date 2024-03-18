@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Document List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <!-- Add more columns as needed -->
+        <th>Author</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if documents %}
+        {% for document in documents %}
+          <tr>
+            <td>{{ document.title }}</td>
+            <td>{{ document.description }}</td>
+            <!-- Add more fields as needed -->
+            <td>{{ document.author }}</td>
+            <td>{{ document.created_date }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="5">No documents available or 'documents' variable is not defined.</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
