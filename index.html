@@ -2,112 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to LegalEase</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Your All-in-One Legal Case Management Solution</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Add your custom CSS file here -->
     <style>
+        /* Custom styles */
         body {
-            padding-top: 56px 40px; /* Adjusted padding for navbar */
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
         }
-        section {
-            padding: 50px 0; /* Added padding to sections */
+        .intro {
+            padding: 100px 0;
+            text-align: center;
+            background-image: url('background.jpg'); /* Change 'background.jpg' to your image file */
+            background-size: cover;
+            color: #ffffff;
         }
+        .intro h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .intro p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .intro .btn-primary {
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            border-radius: 30px;
+        }
+        .features {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .feature {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .feature img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .feature h3 {
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .feature p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .about {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        .about p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+        .about a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer {
+            padding: 20px 0;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .feature-image {
+    width: 400px; /* Adjust as needed */
+    height: 225px; /* Maintain aspect ratio for 16:9 */
+}
+
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">LegalEase</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#how-it-works">How It Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registration' %}">Sign Up</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Intro Section -->
+    <section id="intro" class="intro">
         <div class="container">
-            <h1>Welcome to LegalEase</h1>
-            <p>Your all-in-one solution for legal case management and document handling.</p>
-            <a href="#features" class="btn btn-primary">Learn More</a>
+            <h1>LegalEase</h1>
+            <p>Your All-in-One Legal Case Management Solution</p>
+            <a href="#features" class="btn btn-primary">Explore LegalEase</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Key Features</h2>
-            <div class="row">
-                <div class="col-md-4">
+    <!-- Feature Section -->
+<section id="features" class="features">
+    <div class="container">
+        <h2>Key Features</h2>
+        <!-- Feature 1 -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="feature1.jpg" alt="Feature 1" class="feature-image">
                     <h3>Case Management</h3>
                     <p>Efficiently manage your legal cases with our intuitive case management tools.</p>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="feature2.jpg" alt="Feature 2" class="feature-image">
                     <h3>Document Management</h3>
                     <p>Store, organize, and collaborate on legal documents securely in one place.</p>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="feature3.jpg" alt="Feature 3" class="feature-image">
                     <h3>Security</h3>
                     <p>Robust security features to ensure your sensitive legal data remains protected.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- How It Works Section -->
-<section id="how-it-works" class="how-it-works">
-    <div class="container">
-        <h2>How It Works</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Step 1: Sign Up</h3>
-                <p>Create your LegalEase account by signing up with your email and password.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Step 2: Case Management</h3>
-                <p>Add your legal cases to the platform and manage them efficiently using our intuitive tools.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Step 3: Document Handling</h3>
-                <p>Upload, organize, and collaborate on legal documents securely within your cases.</p>
-            </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About LegalEase</h2>
+            <p>LegalEase was inspired by the need for a comprehensive legal case management solution...</p>
+            <p>This project is part of my portfolio for Holberton School...</p>
+            <p>Follow us on social media: <a href="#">LinkedIn</a>, <a href="#">GitHub</a>, <a href="#">Twitter</a></p>
+            <p>View the project repository on <a href="#">GitHub</a></p>
         </div>
-        <!-- Add more steps as needed -->
-    </div>
-</section>
-
-    <!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>Have questions or feedback? Feel free to reach out to us!</p>
-        <p>Email: contact@legalease.com</p>
-        <p>Phone: +2547124567</p>
-        <p>Address: 123 Legal Street, LegalCity, LC 12345</p>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -117,8 +147,5 @@
     </footer>
 
     <!-- Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min
