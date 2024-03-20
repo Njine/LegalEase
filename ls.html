@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to LegalEase</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <style>
+        body {
+            padding-top: 56px 40px; /* Adjusted padding for navbar */
+        }
+        section {
+            padding: 50px 0; /* Added padding to sections */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">LegalEase</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#how-it-works">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'registration' %}">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to LegalEase</h1>
+            <p>Your all-in-one solution for legal case management and document handling.</p>
+            <a href="#features" class="btn btn-primary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Case Management</h3>
+                    <p>Efficiently manage your legal cases with our intuitive case management tools.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Document Management</h3>
+                    <p>Store, organize, and collaborate on legal documents securely in one place.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Security</h3>
+                    <p>Robust security features to ensure your sensitive legal data remains protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works">
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Step 1: Sign Up</h3>
+                <p>Create your LegalEase account by signing up with your email and password.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Step 2: Case Management</h3>
+                <p>Add your legal cases to the platform and manage them efficiently using our intuitive tools.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Step 3: Document Handling</h3>
+                <p>Upload, organize, and collaborate on legal documents securely within your cases.</p>
+            </div>
+        </div>
+        <!-- Add more steps as needed -->
+    </div>
+</section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or feedback? Feel free to reach out to us!</p>
+        <p>Email: contact@legalease.com</p>
+        <p>Phone: +2547124567</p>
+        <p>Address: 123 Legal Street, LegalCity, LC 12345</p>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 LegalEase. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
