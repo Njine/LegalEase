@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django import forms
+from .models import Team
 
-# Create your views here.
+class TeamForm(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = ['name', 'members']
