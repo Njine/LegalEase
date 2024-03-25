@@ -1,15 +1,20 @@
-<!-- authentication_manager/profile.html -->
+{% extends 'base_generic.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-</head>
-<body>
-    <h2>User Profile</h2>
-    <p>Welcome, {{ user.username }}!</p>
-    <a href="{% url 'logout' %}">Logout</a>
-</body>
-</html>
+{% block title %}Profile - LegalEase{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2>User Profile</h2>
+      <p>Welcome, {{ user.username }}!</p>
+      <p>Email: {{ user.email }}</p>
+      <h4>LegalEase Information:</h4>
+      <p>Full Name: {{ user.profile.full_name }}</p>
+      <p>Role: {{ user.profile.role }}</p>
+      <p>Organization: {{ user.profile.organization }}</p>
+      <!-- Add more relevant profile information here -->
+    </div>
+  </div>
+</div>
+{% endblock %}
