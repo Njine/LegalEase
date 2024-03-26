@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class DocumentType(models.Model):
     name = models.CharField(max_length=100)
@@ -24,6 +25,8 @@ class Document(models.Model):
     visibility = models.CharField(max_length=20, choices=VISIBILITY_CHOICES, default='public')
     tags = models.ManyToManyField(Tag)
     file_path = models.FileField(upload_to='documents/')
+    content = models.TextField(default='please add content here')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)  # Set default value to 1
 
     def __str__(self):
         return self.title
