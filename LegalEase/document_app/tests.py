@@ -1,15 +1,17 @@
-from django.test import TestCase, Client
+from django.contrib.auth.models import User
+from django.test import TestCase
 from django.urls import reverse
 from .models import Document
 
 class DocumentAppTestCase(TestCase):
     def setUp(self):
-        self.client = Client()
-        # Create a sample document for testing
+        # Create a User instance
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        
         self.document = Document.objects.create(
             title='Test Document',
-            content='Sample content for testing',
-            author='Test Author'
+            content='Test Content',
+            author=self.user,  # Assign the User instance to the author field
         )
 
     def test_document_list_view(self):
