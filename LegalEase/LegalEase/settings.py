@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     "client_app",  # Add this line
     "error_logger",  # Add this line
     "invoice_app",  # Add this line
+    "collaboration_app",  # Add this line
+    "task_app",  # Add this line
+    "contact_app",  # Add this line
+    "reporting_app",  # Add this line
+    "security_app",  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -81,13 +86,25 @@ WSGI_APPLICATION = "LegalEase.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+""" DATABASES = {
+    "default": {
+        "ENGINE": 'django.db.backends.postgresql',  # Database engine
+        "NAME": os.environ.get('DB_NAME'),         # Database name from environment variable
+        "USER": os.environ.get('DB_USER'),         # Database user from environment variable
+        "PASSWORD": os.environ.get('DB_PASSWORD'), # Database password from environment variable
+        "HOST": os.environ.get('DB_HOST'),         # Database host from environment variable
+    }
+}
+   """
+
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER'),
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
-        "HOST": os.environ.get('DB_HOST'),
+        "ENGINE": 'django.db.backends.postgresql',
+        "NAME": 'legalease',  # Replace 'legalease' with your actual database name
+        "USER": 'postgres',    # Replace 'postgres' with your actual database user
+        "PASSWORD": 'serendipity',  # Replace 'serendipity' with your actual database password
+        "HOST": 'localhost',   # Replace 'localhost' with your actual database host
     }
 }
 
