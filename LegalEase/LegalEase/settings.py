@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "contact_app",  # Add this line
     "reporting_app",  # Add this line
     "security_app",  # Add this line
+    "report_builder",  # Add this line
 ]
 
 MIDDLEWARE = [
