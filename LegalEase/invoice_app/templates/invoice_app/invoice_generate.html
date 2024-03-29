@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Generate Invoice</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <!-- Your HTML content for generating invoice -->
-</body>
-</html>
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Generate Invoice</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Generate</button>
+  </form>
+{% endblock %}

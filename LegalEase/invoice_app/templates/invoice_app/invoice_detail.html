@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Invoice Detail</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <!-- Your HTML content for invoice detail -->
-</body>
-</html>
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Invoice Detail</h2>
+  <p><strong>Amount:</strong> {{ invoice.amount }}</p>
+  <p><strong>Due Date:</strong> {{ invoice.due_date }}</p>
+  <!-- Add more fields as needed -->
+  <p><a href="{% url 'invoice_update' invoice.id %}">Edit</a> | <a href="{% url 'invoice_confirm_delete' invoice.id %}">Delete</a></p>
+{% endblock %}

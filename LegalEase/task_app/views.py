@@ -39,7 +39,7 @@ def update_task(request, pk):
             return redirect('task_list')
     else:
         form = TaskForm(instance=task)
-    return render(request, 'task_app/task_form.html', {'form': form})
+    return render(request, 'task_app/task_form.html', {'form': form, 'task': task})
 
 @login_required
 def delete_task(request, pk):
