@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Document Detail</h1>
+<h2>Title: {{ document.title }}</h2>
+<p>Description: {{ document.description }}</p>
+<p>Uploaded by: {{ document.author }}</p>
+<a href="{{ document.document_file.url }}">Download Document</a>
+{% endblock %}

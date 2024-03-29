@@ -1,10 +1,10 @@
-{% extends "base_generic.html" %}
+{% extends 'base_generic.html' %}
 
 {% block content %}
-  <h2>Update Invoice</h2>
-  <form method="post">
+<h1>Update Document</h1>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Update</button>
-  </form>
+</form>
 {% endblock %}

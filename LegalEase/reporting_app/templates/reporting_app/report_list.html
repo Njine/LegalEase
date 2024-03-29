@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Law Firm Reports</h2>
+  <ul>
+    {% for report in law_firm_reports %}
+      <li><a href="{% url 'report_detail' report.id %}">{{ report.title }}</a></li>
+    {% empty %}
+      <li>No reports available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

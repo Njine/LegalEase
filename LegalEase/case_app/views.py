@@ -1,6 +1,6 @@
-from document_app.models import Document
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Case
+from .forms import CaseForm
 
 def case_list(request):
     cases = Case.objects.all()
@@ -12,19 +12,21 @@ def case_detail(request, case_id):
 
 def create_case(request):
     if request.method == 'POST':
-        # Process the form data and create a new case
-        # ...
-        return redirect('case_list')  # Redirect to the case list page after creating the case
+        form = CaseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('case_list')
     else:
-        # Render the form to create a new case
-        return render(request, 'case_app/create_case.html')
+        form = CaseForm()
+    return render(request, 'case_app/create_case.html', {'form': form})
 
 def update_case(request, case_id):
     case = get_object_or_404(Case, pk=case_id)
     if request.method == 'POST':
-        # Process the form data and update the existing case
-        # ...
-        return redirect('case_detail', case_id=case_id)  # Redirect to the case detail page after updating the case
+        form = CaseForm(request.POST, instance=case)
+        if form.is_valid():
+            form.save()
+            return redirect('case_detail', case_id=case_id)
     else:
-        # Render the form to update the existing case
-        return render(request, 'case_app/update_case.html', {'case': case})
+        form = CaseForm(instance=case)
+    return render(request, 'case_app/update_case.html', {'form': form, 'case': case})

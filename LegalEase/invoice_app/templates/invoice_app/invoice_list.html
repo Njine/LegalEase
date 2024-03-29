@@ -1,12 +1,31 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Invoice List</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <!-- Your HTML content for invoice list -->
-</body>
-</html>
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Invoice List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Due Date</th>
+        <!-- Add more columns as needed -->
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if invoices %}
+        {% for invoice in invoices %}
+          <tr>
+            <td>{{ invoice.amount }}</td>
+            <td>{{ invoice.due_date }}</td>
+            <!-- Add more fields as needed -->
+            <td><a href="{% url 'invoice_detail' invoice.id %}">View</a> | <a href="{% url 'invoice_update' invoice.id %}">Edit</a> | <a href="{% url 'invoice_confirm_delete' invoice.id %}">Delete</a></td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="4">No invoices available or 'invoices' variable is not defined.</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+{% endblock %}

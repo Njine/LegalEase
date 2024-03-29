@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Manage Security Groups</h2>
+  <ul>
+    {% for group in security_groups %}
+      <li><a href="{% url 'edit_security_group' group.id %}">{{ group.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_security_group' %}">Create New Security Group</a>
+{% endblock %}
