@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Insert Data</h1>
+<form method="post">
+    {% csrf_token %}
+    <!-- Add form fields for inserting data here -->
+    <button type="submit">Insert Data</button>
+</form>
+{% endblock %}

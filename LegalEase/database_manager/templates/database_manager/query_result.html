@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Query Result</h1>
+<p>Query: {{ query }}</p>
+<table>
+    <thead>
+        <tr>
+            <!-- Add table headers here -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+            <tr>
+                <!-- Add table row data here -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

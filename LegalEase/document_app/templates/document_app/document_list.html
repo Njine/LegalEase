@@ -16,7 +16,7 @@
       {% if documents %}
         {% for document in documents %}
           <tr>
-            <td>{{ document.title }}</td>
+            <td><a href="{% url 'document_detail' document.id %}">{{ document.title }}</a></td>
             <td>{{ document.description }}</td>
             <!-- Add more fields as needed -->
             <td>{{ document.author }}</td>

@@ -1,7 +1,10 @@
-from django import forms
-from .models import Team
+from django.shortcuts import render
+from .models import CollaborationBoard, ChatMessage
 
-class TeamForm(forms.ModelForm):
-    class Meta:
-        model = Team
-        fields = ['name', 'members']
+def collaboration_board(request):
+    collaboration_boards = CollaborationBoard.objects.all()
+    return render(request, 'collaboration_app/collaboration_board.html', {'collaboration_boards': collaboration_boards})
+
+def collaboration_chat(request):
+    chat_messages = ChatMessage.objects.all()
+    return render(request, 'collaboration_app/collaboration_chat.html', {'chat_messages': chat_messages})

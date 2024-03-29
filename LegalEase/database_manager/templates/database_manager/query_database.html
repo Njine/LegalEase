@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Query Database</h1>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="query" rows="5" cols="50" placeholder="Enter your SQL query here"></textarea><br>
+    <button type="submit">Execute Query</button>
+</form>
+{% endblock %}
