@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LegalEase.settings')
+
+application = get_wsgi_application()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +56,7 @@ INSTALLED_APPS = [
     "contact_app",  # Add this line
     "reporting_app",  # Add this line
     "security_app",  # Add this line
+    "report_builder",  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -162,3 +169,6 @@ LOGIN_URL = 'login'
 
 # Specify the URL to redirect to after log out
 LOGOUT_REDIRECT_URL = 'login'
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())

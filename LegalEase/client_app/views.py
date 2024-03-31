@@ -28,3 +28,10 @@ def update_client(request, client_id):
         return redirect('client_detail', client_id=client_id)
     else:
         return render(request, 'client_app/update_client.html', {'client': client})
+
+def delete_client(client_id):
+    client = get_object_or_404(Client, pk=client_id)
+    client.delete()
+    return redirect('client_list')  # Redirect to the client list view after deleting the client
+# Path: LegalEase/client_app/templates/client_app/client_list.html
+# Compare this snippet from LegalEase/authentication_manager/templates/authentication_manager/login.html:

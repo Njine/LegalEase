@@ -27,6 +27,7 @@ class Invoice(models.Model):
     discount_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     adjustment_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
+    description = models.CharField(max_length=255, default='Description')  # Example field definition
 
     def __str__(self):
         return f"Invoice #{self.invoice_number} - Amount: {self.amount}"
