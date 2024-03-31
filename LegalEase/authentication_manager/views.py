@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.views import (
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
 from .forms import CustomPasswordChangeForm
 
 def login_view(request):
@@ -55,3 +60,15 @@ def user_management_view(request):
     return render(request, 'user_management.html', {'users': users})
 
 # Add more views for other functionalities as needed
+def password_reset_done_view(request):
+    return PasswordResetDoneView.as_view()(request)
+
+def password_reset_confirm_view(request, uidb64, token):
+    return PasswordResetConfirmView.as_view()(request, uidb64=uidb64, token=token)
+
+def password_reset_complete_view(request):
+    return PasswordResetCompleteView.as_view()(request)
+
+def user_detail_view(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    return render(request, 'user_detail.html', {'user': user})

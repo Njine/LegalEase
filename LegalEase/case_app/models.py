@@ -29,7 +29,9 @@ class Case(models.Model):
     scheduling_date = models.DateTimeField()
     lawyer = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Use CustomUser model
     documents = models.ManyToManyField(Document)  # Use Document model
-    court = models.ForeignKey(Court, on_delete=models.CASCADE, default=1)  # Add default value
+    court = models.ForeignKey(Court, on_delete=models.CASCADE, default=1)
+    start_date = models.DateField(default=None)  # Add default value
+    end_date = models.DateField(default=None)  # Add default value
 
     def __str__(self):
         return self.title

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error List</title>
+</head>
+<body>
+    <h1>Error List</h1>
+    <ul>
+        {% for error in errors %}
+            <li>{{ error.error_message }} - {{ error.error_code }}</li>
+        {% empty %}
+            <li>No errors found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
