@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LegalEase.settings')
@@ -112,6 +113,7 @@ DATABASES = {
         "USER": 'postgres',    # Replace 'postgres' with your actual database user
         "PASSWORD": 'serendipity',  # Replace 'serendipity' with your actual database password
         "HOST": 'localhost',   # Replace 'localhost' with your actual database host
+        
     }
 }
 
