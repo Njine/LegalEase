@@ -11,6 +11,9 @@ The Law Firm Management System is a web-based application designed to streamline
 - **Case Management:** Record case details including title, description, court level, assigned lawyer, and scheduling information.
 - **Document Management:** Upload, view, and manage documents associated with specific cases.
 - **Invoice Generation:** Automatically generate invoices for billable services, with options for various billing methods and payment tracking.
+- **Calendar Integration:** Integration with a calendar system to schedule appointments, court dates, and deadlines.
+- **Task Management:** Assign tasks to users, track task progress, and set reminders for important deadlines.
+- **Reporting:** Generate reports on various metrics such as case workload, billing summaries, and client demographics.
 
 ## Technologies Used
 
@@ -56,3 +59,4 @@ Contributions are welcome! Feel free to submit pull requests or open issues for 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
