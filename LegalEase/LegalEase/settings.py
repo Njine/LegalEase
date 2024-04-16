@@ -12,12 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LegalEase.settings')
-
-application = get_wsgi_application()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,25 +87,13 @@ WSGI_APPLICATION = "LegalEase.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-""" DATABASES = {
-    "default": {
-        "ENGINE": 'django.db.backends.postgresql',  # Database engine
-        "NAME": os.environ.get('DB_NAME'),         # Database name from environment variable
-        "USER": os.environ.get('DB_USER'),         # Database user from environment variable
-        "PASSWORD": os.environ.get('DB_PASSWORD'), # Database password from environment variable
-        "HOST": os.environ.get('DB_HOST'),         # Database host from environment variable
-    }
-}
-   """
-
-
 DATABASES = {
     "default": {
-        "ENGINE": 'django.db.backends.postgresql',
-        "NAME": 'legalease',  # Replace 'legalease' with your actual database name
-        "USER": 'postgres',    # Replace 'postgres' with your actual database user
-        "PASSWORD": 'serendipity',  # Replace 'serendipity' with your actual database password
-        "HOST": 'localhost',   # Replace 'localhost' with your actual database host
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "legalease",
+        "USER": "postgres",  # "USER": "os.environ.get('DB_USER')",  # "USER
+        "PASSWORD": "serendipity",  # "PASSWORD": "os.environ.get('DB_PASSWORD')",  # "PASSWORD
+        "HOST": "localhost",  # "HOST": "os.environ.get('DB_HOST')",  # "HOST
     }
 }
 
@@ -169,6 +151,3 @@ LOGIN_URL = 'login'
 
 # Specify the URL to redirect to after log out
 LOGOUT_REDIRECT_URL = 'login'
-
-# Configure Django App for Heroku.
-django_heroku.settings(locals())
