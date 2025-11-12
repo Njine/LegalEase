@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-i7&4m_#dd6sll07#5ge2qogc0p=kl0^1b%=$1c*%+^%x-jwi0q"
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-i7&4m_#dd6sll07#5ge2qogc0p=kl0^1b%=$1c*%+^%x-jwi0q')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
 
 
 # Application definition
@@ -38,19 +42,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "user_app",  # Add this line
-    "authentication_manager",  # Add this line
-    "case_app",  # Add this line
-    "document_app",  # Add this line
-    "client_app",  # Add this line
-    "error_logger",  # Add this line
-    "invoice_app",  # Add this line
-    "collaboration_app",  # Add this line
-    "task_app",  # Add this line
-    "contact_app",  # Add this line
-    "reporting_app",  # Add this line
-    "security_app",  # Add this line
-    "report_builder",  # Add this line
+    "user_app",
+    "authentication_manager",
+    "case_app",
+    "document_app",
+    "client_app",
+    "error_logger",
+    "invoice_app",
+    "collaboration_app",
+    "task_app",
+    "contact_app",
+    "reporting_app",
+    "security_app",
 ]
 
 MIDDLEWARE = [
@@ -87,15 +90,25 @@ WSGI_APPLICATION = "LegalEase.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "legalease",
-        "USER": "postgres",  # "USER": "os.environ.get('DB_USER')",  # "USER
-        "PASSWORD": "serendipity",  # "PASSWORD": "os.environ.get('DB_PASSWORD')",  # "PASSWORD
-        "HOST": "localhost",  # "HOST": "os.environ.get('DB_HOST')",  # "HOST
+# Support both PostgreSQL and SQLite
+if os.environ.get('DB_ENGINE') == 'sqlite3':
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get('DB_NAME', 'legalease'),
+            "USER": os.environ.get('DB_USER', 'postgres'),
+            "PASSWORD": os.environ.get('DB_PASSWORD', 'serendipity'),
+            "HOST": os.environ.get('DB_HOST', 'localhost'),
+            "PORT": os.environ.get('DB_PORT', '5432'),
+        }
+    }
 
 
 # Password validation
