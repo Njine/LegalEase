@@ -1,0 +1,22 @@
+# Development Dependencies
+# Install with: pip install -r requirements-dev.txt
+
+# Testing
+coverage==7.6.9
+
+# Code Quality
+flake8==7.1.1
+black==24.10.0
+isort==5.13.2
+pylint==3.3.3
+pylint-django==2.6.1
+
+# Pre-commit hooks
+pre-commit==4.0.1
+
+# Security
+bandit==1.8.0
+
+# Documentation
+sphinx==8.1.3
+sphinx-rtd-theme==3.0.2
